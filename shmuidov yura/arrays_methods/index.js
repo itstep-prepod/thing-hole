@@ -40,11 +40,11 @@ let people2 = [
 // console.log(people2);
 
 // 3. Создайте массив только из тех имен, которые совпадают в обоих массивах.
-let combinedArrayNames = people1.concat(people2);
-let matchingArrayNames = combinedArrayNames.filter(
-  (item, index) => combinedArrayNames.indexOf(item) !== index
-);
-console.log(matchingArrayNames);
+// let combinedArrayNames = people1.concat(people2);
+// let matchingArrayNames = combinedArrayNames.filter(
+//   (item, index) => combinedArrayNames.indexOf(item) !== index
+// );
+// console.log(matchingArrayNames);
 
 // 4. Объедините массивы people1 и people2 так, чтобы в получившемся массиве не было одинаковых имен.
 // let combinedArrayNames = people1.concat(people2);
