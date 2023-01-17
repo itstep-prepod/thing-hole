@@ -1,15 +1,17 @@
 // 1. Дан массив [2,5,6,7,9]. С помощью цикла вывести эти
 // числа на экран по очереди.
 const cart = [2, 5, 6, 7, 9];
+
 for (let i = 0; i < cart.length; i++) {
-    console.log(cart[i]);
+	console.log(cart[i]);
 }
 
 // 2. Дан массив [2,5,6,7,9]. С помощью цикла вывести эти
 // числа на экран в обратном порядке.
 const cart = [2, 5, 6, 7, 9];
+
 for (let i = cart.length - 1; i >= 0; i--) {
-  console.log(cart[i]);
+	console.log(cart[i]);
 }
 
 
@@ -19,7 +21,7 @@ const cart = [2, 5, 6, 7, 9, 10, 12, 14, 16, 25];
 
 let result = 0;
 for (let i = 0; i < cart.length; i++) {
-    result += cart[i];
+	result += cart[i];
 }
 console.log("Сумма элементов массива:" + result);
 
@@ -32,10 +34,10 @@ let result = 0;
 let evenPlacesAmount = 0;
 // переменная количество четных мест
 for (let i = 0; i < arr.length; i++) {
-  if (i % 2 === 0) {
-    result = result + arr[i];
-    evenPlacesAmount = evenPlacesAmount + 1;
-  }
+	if (i % 2 === 0) {
+		result = result + arr[i];
+		evenPlacesAmount = evenPlacesAmount + 1;
+	}
 }
 console.log("Среднее арифметическое значение массива:" + result / evenPlacesAmount);
 
@@ -48,9 +50,9 @@ console.log("Среднее арифметическое значение мас
 const arr = [2,5,-7,92,-19,52,-23,61,-74,45];
 const resultArr = [];
 
-	for (let i = 0; i < arr.length; i++) {
-    resultArr[i] = -arr[i];
-	}
+for (let i = 0; i < arr.length; i++) {
+	resultArr[i] = -arr[i];
+}
 console.log(arr);
 console.log(resultArr);
 
@@ -60,8 +62,9 @@ console.log(resultArr);
 // массива: 8)
 
 const arr = [];
+
 for (let i = 0; i < 8 ; i++) {
-    // или вместо i < 8  arr.length !== 8
+// или вместо i < 8  arr.length !== 8
 	arr[i] = i + 1;
 // или arr[i] = 2; будут двойки
 }
@@ -73,8 +76,9 @@ console.log(arr);
 
 const arr = [];
 let number = 0;
+
 for (let i = 0; i < 10; i++) {
-  arr[i] = i * i;
+	arr[i] = i * i;
 }
 console.log(arr);
 
@@ -84,10 +88,11 @@ console.log(arr);
 
 const arr = [2, 5, 6, 7, 9, 10, 12, 14, 16, 25];
 let result = 0;
+
 for (let i = 0; i < arr.length; i++) {
-    if ((arr[i] % 2) === 0) {
-        result++;
-    }
+	if ((arr[i] % 2) === 0) {
+		result++;
+	}
 }
 console.log("Количество четных чисел массива:" + result);
 
@@ -99,9 +104,9 @@ const arr = [2, 900, 6, 7, 60, 10, 12, 14, 16, 25];
 let maxNumber = arr[0];
 // Переменная для хранения макс числа
 for (let i = 0; i < arr.length; i++) {
-  if (arr[i] > maxNumber) {
-	maxNumber = arr[i]
-  }
+	if (arr[i] > maxNumber) {
+		maxNumber = arr[i];
+	}
 }
 
 console.log("Максимальное число массива:" + maxNumber);
