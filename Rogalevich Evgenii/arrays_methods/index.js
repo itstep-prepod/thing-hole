@@ -56,7 +56,7 @@ const arrNumbers = new Array(10).fill(1);
 const arrRandomNumbers = arrNumbers.map(
   (item) => +prompt("Enter number for array")
 );
-console.log(arrRandomNumbers);
+// console.log(arrRandomNumbers);
 
 const isArrRandomNumbers = arrRandomNumbers.every((item) => !isNaN(item));
 console.log(isArrRandomNumbers);
@@ -69,7 +69,7 @@ const secondArrNumbers = new Array(10).fill(1);
 const secondArrRandomNumbers = secondArrNumbers.map(
   (item) => +prompt("Enter number for array")
 );
-console.log(secondArrRandomNumbers);
+// console.log(secondArrRandomNumbers);
 
 const squareArrRandomNumbers = secondArrRandomNumbers.map(
   (item) => item * item
@@ -103,6 +103,29 @@ const arrMaxSum = twoDimensionalArr.reduce((previousItemArr, actualItemArr) => {
 });
 console.log(arrMaxSum);
 
+//-OTHER VERSION-------------------------------------------------------------
+// let maxArrInInitialArr = [];
+// const ArrmaxSum = twoDimensionalArr.reduce(
+//   (previousSumItemsArr, actualSumItemsArr) => {
+//     if (
+//       actualSumItemsArr.reduce((accPres, itemPres) => accPres + itemPres) >
+//       previousSumItemsArr
+//     ) {
+//       maxArrInInitialArr = actualSumItemsArr;
+//       return actualSumItemsArr.reduce(
+//         (accPres, itemPres) => accPres + itemPres
+//       );
+//     } else {
+//       return previousSumItemsArr;
+//     }
+//   },
+//   0
+// );
+// console.log(maxArrInInitialArr);
+
+//---- не работает с массивами отрицательных чисел !!!!---------------------------
+//---------------------------------------------------------------------------
+
 // 8. Дан массив [1,1,1,4,4,5,1,6,6,74,74,74,3]. Написать функцию,
 // которая вернет массив только из тех чисел, которые
 // повторялись в исходном. Массив, который возвращает
@@ -110,15 +133,30 @@ console.log(arrMaxSum);
 
 const arrWantonNumbers = [1, 1, 1, 4, 4, 5, 1, 6, 6, 74, 74, 74, 3];
 
-const arrWithoutSinglNumbers = arrWantonNumbers.filter((item, index, arr) => {
-  return arr.indexOf(item) !== index;
-});
-console.log(arrWithoutSinglNumbers);
-
-const arrRepeatingNumbers = arrWithoutSinglNumbers.filter(
-  (item, index, arr) => {
-    return arr.indexOf(item) === index;
+const arrRepeatingNumbers = arrWantonNumbers.reduce((acc, item, index) => {
+  if (
+    arrWantonNumbers.includes(item, index + 1) &&
+    acc.every((item2) => item2 !== item)
+  ) {
+    return acc.concat(item);
+  } else {
+    return acc;
   }
-);
+}, []);
 
 console.log(arrRepeatingNumbers);
+
+//--OTHER VERSION--------------------------------------------------------------------
+// const arrWithoutSinglNumbers = arrWantonNumbers.filter((item, index, arr) => {
+//   return arr.indexOf(item) !== index;
+// });
+// console.log(arrWithoutSinglNumbers);
+
+// const arrRepeatingNumbers = arrWithoutSinglNumbers.filter(
+//   (item, index, arr) => {
+//     return arr.indexOf(item) === index;
+//   }
+// );
+
+// console.log(arrRepeatingNumbers);
+//-------------------------------------------------------------------------------------
