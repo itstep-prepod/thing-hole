@@ -1,0 +1,103 @@
+
+// const arr = [
+//     'john', 'valerchik', 'peter', 'evlampij'
+// ];
+
+// 1.  создать массив имен с большой буквы (map)
+// [???, ???, ???, ???]
+
+
+
+// // 2. 
+// const car = {
+//     model: 'tesla',
+//     adress: {
+//         country: {
+//             city: {
+//                 name: 'gomel',
+//                 street: {
+//                     name: 'pushkina',
+//                     numbre: 2
+//                 }
+//             }
+//         },
+//         region: ['gomel','brest', 'minsk']
+//     },
+//     specs: {
+//         price: {
+//             low: 2000,
+//             mid: 3000,
+//             hight: 5000
+//         },
+//         engine: {
+//             power: 400,
+//             lowPower: 100
+//         }
+//     }
+// };
+
+// const car2 = {
+//     model: 'lada',
+//     adress: {
+//         country: {
+//             city: {
+//                 name: 'gomel',
+//                 street: {
+//                     name: 'pushkina',
+//                     numbre: 2
+//                 }
+//             }
+//         },
+//         region: ['minsk','grodno', 'eremino']
+//     },
+//     specs: {
+//         price: {
+//             low: 100,
+//             mid: 2000,
+//             hight: 2500
+//         },
+//         engine: {
+//             power: 200,
+//             lowPower: 100
+//         }
+//     }
+// };
+
+// const car3 = {
+//     model: 'bmw',
+//     adress: {
+//         country: {
+//             city: {
+//                 name: 'boston',
+//                 street: {
+//                     name: 'pushkina',
+//                     numbre: 2
+//                 }
+//             }
+//         },
+//         region: ['new york', 'berlin', 'bacelona']
+//     },
+//     specs: {
+//         price: {
+//             low: 100000,
+//             mid: 150000,
+//             hight: 200000
+//         },
+//         engine: {
+//             power: 1000,
+//             lowPower: 500
+//         }
+//     }
+// };
+
+
+// const arrCars = [car, car2, car3];
+
+
+
+// 2.1 отфильтровать авто так чтобы в результирующий массив вошли
+// только машины из региона минск
+// 2.2 просуммировать общую стоимость авто по наивысшей цене
+// 2.3 найти хотя бы одно авто мощность двигателя которого больше 500
+// 2.4 найти самое дешевое авто по наименьшей цене
+
