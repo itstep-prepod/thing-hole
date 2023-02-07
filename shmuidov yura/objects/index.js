@@ -1,62 +1,115 @@
-// 1. Написать программу, которая вычисляет сумму чисел от 1 до n. Значение n вводится с клавиатуры. Проверить число n на корректность (чтобы это было число, чтобы оно не было меньше 1, чтобы это было не null).
+// 1.  создать массив имен с большой буквы (map)
+// const arr = ["john", "valerchik", "peter", "evlampij"];
+// const nameArr = arr.map((n) => n[0].toUpperCase() + n.slice(1));
+// console.log(nameArr);
 
-// let numberN = prompt("enter number n");
-// let sumNumberN = 0;
-// if (!isNaN(numberN) && numberN > 0 && numberN !== null) {
-//   numberN = Number(numberN);
-//   for (let counter = 1; counter <= numberN; counter++) {
-//     sumNumberN = sumNumberN + counter;
-//   }
-//   console.log(
-// `The sum of the numbers up to ${numberN} is equal to  ${sumNumberN}`
-//   );
-// } else {
-//   alert(`enter a positive number n`);
+// 2.
+const car = {
+  model: "tesla",
+  adress: {
+    country: {
+      city: {
+        name: "gomel",
+        street: {
+          name: "pushkina",
+          numbre: 2,
+        },
+      },
+    },
+    region: ["gomel", "brest", "minsk"],
+  },
+  specs: {
+    price: {
+      low: 2000,
+      mid: 3000,
+      hight: 5000,
+    },
+    engine: {
+      power: 400,
+      lowPower: 100,
+    },
+  },
+};
+
+const car2 = {
+  model: "lada",
+  adress: {
+    country: {
+      city: {
+        name: "gomel",
+        street: {
+          name: "pushkina",
+          numbre: 2,
+        },
+      },
+    },
+    region: ["minsk", "grodno", "eremino"],
+  },
+  specs: {
+    price: {
+      low: 100,
+      mid: 2000,
+      hight: 2500,
+    },
+    engine: {
+      power: 200,
+      lowPower: 100,
+    },
+  },
+};
+
+const car3 = {
+  model: "bmw",
+  adress: {
+    country: {
+      city: {
+        name: "boston",
+        street: {
+          name: "pushkina",
+          numbre: 2,
+        },
+      },
+    },
+    region: ["new york", "berlin", "bacelona"],
+  },
+  specs: {
+    price: {
+      low: 100000,
+      mid: 150000,
+      hight: 200000,
+    },
+    engine: {
+      power: 1000,
+      lowPower: 500,
+    },
+  },
+};
+const arrCars = [car, car2, car3];
+// 2.1 отфильтровать авто так чтобы в результирующий массив вошли только машины из региона минск
+// function inMinskRegion(car) {
+//   const arrCarsMinsk = car["adress"]["region"];
+//   const minskRegion = arrCarsMinsk.some((car) => {
+//     return car === "minsk";
+//   });
+//   return minskRegion;
 // }
+// const result = arrCars.filter(inMinskRegion);
+// console.log(result);
+// const arrCarsMinsk = (adress.region) =>
+//   arrCars.filter((o) => o.adress.region === adress.region);
+// console.log(arrCarsMinsk("minsk"));
 
-// 2. Написать программу, которая определяет количество положительных, отрицательных чисел и нулей. В начале программы, пользователь самостоятельно задает какое количество чисел будет вводить, затем вводит сами числа. Пример вывода: «Положительных: 2 шт. Отрицательных: 5 шт. Нулей: 3 шт.»
+// 2.2 просуммировать общую стоимость авто по наивысшей цене
+// const sumPriceHight = (price) => {
+//   return price.reduce((acc, curr) => {
+//     return acc + curr.specs.price.hight;
+//   }, 0);
+// };
+// console.log(sumPriceHight(arrCars));
+// 2.3 найти хотя бы одно авто мощность двигателя которого больше 500
+const carPower500 = arrCars.find((car) => car.specs.engine.power > 500);
+console.log(carPower500);
+// 2.4 найти самое дешевое авто по наименьшей цене
+const carMonay = arrCars.find((car) => car.specs.price.low < 1000);
 
-// let numberNumbers = prompt("enter number of numbers");
-// let numberPositiveNumbers = 0;
-// let numberNegativeNumbers = 0;
-// let ZeroNumbers = 0;
-// for (let counter = 1; counter <= numberNumbers; counter++) {
-//   let number = prompt("enter number");
-//   if (number > 0) {
-//     numberPositiveNumbers = Number(numberPositiveNumbers);
-//     numberPositiveNumbers++;
-//   } else if (number < 0) {
-//     numberNegativeNumbers = Number(numberNegativeNumbers);
-//     numberNegativeNumbers++;
-//   } else if (number == 0) {
-//     ZeroNumbers = Number(ZeroNumbers);
-//     ZeroNumbers++;
-//   }
-// }
-// console.log(`положительных ${numberPositiveNumbers} шт.`);
-// console.log(`Отрицательных ${numberNegativeNumbers} шт.`);
-// console.log(`Нулей ${ZeroNumbers} шт.`);
-
-// 3. Написать программу, которая выводит на экран двузначные числа, которые делятся на 4, но не делятся на 6.
-
-// for (let counter = 10; counter < 100; counter++) {
-//   if (counter % 4 === 0 && counter % 6 !== 0) {
-//     console.log(counter);
-//   }
-// }
-
-// 4. Написать программу, которая выводит среднее арифметическое n чисел введенных пользователем. Ввод чисел прекращается тогда, когда нажали «отмена», после чего выводится среднее арифметическое.
-
-let sumNumber = 0;
-let numberNumbers = 0;
-for (;;) {
-  let number = prompt("enter a number");
-  if (number === null) {
-    break;
-  }
-  number = Number(number);
-  sumNumber += number;
-  numberNumbers++;
-}
-let arithmetic = sumNumber / numberNumbers;
-console.log(`arithmetic mean of the entered numbers ${arithmetic}`);
+console.log(carMonay);
