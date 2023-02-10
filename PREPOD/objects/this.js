@@ -52,9 +52,6 @@
 // foo(1,2,3)
 
 
-// get set settimeout prototype 
-
-
 
 // const person = {
 //     userName: 'John',
@@ -123,25 +120,89 @@
 // одному человеку показалось что она что то сказала
 // запусите метод .sayHello() одно из людей в контексте СОБАКИ
 
-const people = [
-    {name: 'John', age: 23}, 
-    {name: 'David', age: 51}
-];
+// const people = [
+//     {name: 'John', age: 23}, 
+//     {name: 'David', age: 51}
+// ];
 
-const dog = {
-    name: 'Bobik',
-    age: 1
-};
+// const dog = {
+//     name: 'Bobik',
+//     age: 1
+// };
 
-function sayHello () {
-    console.log(`Hello i am ${this.name} and im ${this.age} years old!`);
-}
+// function sayHello () {
+//     console.log(`Hello i am ${this.name} and im ${this.age} years old!`);
+// }
 
-people.forEach((person) => {
-    person.sayHello = sayHello;
-});
+// people.forEach((person) => {
+//     person.sayHello = sayHello;
+// });
 
 // people[1].sayHello();
+// people[0].sayHello();
 // people[0].sayHello.call(dog);
 
-console.log( people[0].sayHello === people[1].sayHello );
+// console.log( people[0].sayHello === people[1].sayHello );
+
+
+
+// get set settimeout prototype 
+
+
+// const person = {
+//     userName: 'John',
+//     age: 41,
+//     run: function (where) {
+//         console.log(`${this.userName} runs to ${where}` );
+//     }
+// }
+
+// setTimeout(() => person.run('itstep'), 2000);
+
+
+
+// const timeoutId = setTimeout(() => console.log(1), 0);
+
+// clearTimeout(timeoutId);
+
+// let counter = 0;
+
+// const intervalId = setInterval(() => {
+//     console.log(`FUNC RUNS! ${++counter}`);
+// }, 1800);
+
+// clearInterval(intervalId);
+
+
+// напсиать код который запускает функцию с консоль логом
+// ПРИВЕТИКИ!
+// каждую секунду в течении 5ти секунд
+// после 5 секунд вывод ПРИВЕТИКов в консоль должен прекратиться
+
+// const id = setInterval(() => {
+//     console.log('Hello');
+//     console.log('Bye');
+// }, 1000);
+
+// setTimeout(() => {
+//     clearInterval(id);
+// }, 5000);
+
+
+
+// for (let i = 0; i < 5; i++) {
+//     setTimeout(() => {
+//         console.log(i);
+//     }, 1000);
+// }
+
+// let i = 0;
+
+// while (i < 5) {
+//     setTimeout(() => {
+//         console.log(i);
+//     }, 1000);
+
+//     i++;
+// }
+

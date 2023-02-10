@@ -1,0 +1,25 @@
+// 1. Дан объект 
+// const vagon = {
+//     material: 'wood',
+//     capacity: 1000,
+//     isFull: false,
+//     loaded: 0
+// };
+
+// 1.1 Сделать capacity доступным только для чтения
+// 1.2 Поле loaded может быть не больше capacityи не ниже 0
+// 1.3 Если loaded === capacity то поле isFull должно быть true
+// 1.4 поле isFull не должно быть доступно для записи извне
+// 1.5 поле isFull должно АВТОМАТИЧЕСКИ меняться на false если loaded < capacity
+
+
+// 2. Дан объект 
+// const kurochka = {
+//     name: "Ryaba",
+//     isAlive: true,
+//     isZazharena: false
+// };
+// Если поменять поле isZazharena на true, то поле isAlive должно стать false 
+// и больше не быть доступно для записи изменения или удаления
+// ДО изменения isZazharena, поле isAlive ДОЛЖНО быть доступно для записи
+// isAlive можно поменять на false ЛИШЬ ОДНАЖДЫ
