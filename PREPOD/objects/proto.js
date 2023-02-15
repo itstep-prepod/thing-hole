@@ -116,3 +116,156 @@
 // и больше не быть доступно для записи изменения или удаления
 // ДО изменения isZazharena, поле isAlive ДОЛЖНО быть доступно для записи
 // isAlive можно поменять на false ЛИШЬ ОДНАЖДЫ
+
+
+// proto
+
+// function add () {}
+
+// console.log( add );
+
+
+// const obj = {};
+
+// const s = new Set([1,2,3]);
+
+// console.log( s.toString === obj.toString );
+
+// const futureProto = {a:2};
+
+// const obj = Object.create(futureProto);
+
+// const arr = [];
+
+// const obj = Object.create(arr.__proto__)
+// obj.a = 2;
+// console.log(obj.push(100));
+// console.log(obj)
+
+// const obj = {};
+// const arr = [];
+// function foo () {}
+
+// console.log( arr.__proto__.__proto__ === foo.__proto__.__proto__);
+
+
+
+// function Foo () {
+//     // this = {}
+
+//     this.a = 3;
+
+//     // return this;
+// }
+
+// const result = new Foo();
+// const result2 = new Foo();
+// result2.b = 2;
+
+// console.log()
+
+
+
+
+// function Person (name, age) {
+//     this.name = name;
+//     this.age = age;
+// }
+
+// const p1 = new Person('Peter', 12);
+// const p2 = new Person('David', 15);
+
+// Person.prototype.walk = function () {
+//     console.log(`${this.name} is walking`);
+// };
+// Person.prototype.run = function () {
+//     console.log(`${this.name} runs`);
+// };
+
+// p1.run()
+// console.log(p1.run === p2.run);
+
+
+// console.log(Person.prototype === p1.__proto__);
+
+// const arr = new Array();
+// const arr2 = [];
+// arr.__proto__ = Array.prototype
+
+// console.log( arr2.__proto__ === Array.prototype );
+
+// Array.prototype.push = function () {
+//     console.log('FIG TEBE A NE PUSH!');
+// };
+
+// console.log(function(){}.__proto__ === Function.prototype)
+
+
+
+// function Person (name, age) {
+//     this.name = name;
+//     this.age = age;
+// }
+
+// const p1 = new Person('Peter', 12);
+// const p2 = new Person('David', 15);
+
+// Person.prototype.walk = function () {
+//     console.log(`${this.name} is walking`);
+// };
+// Person.prototype.run = function () {
+//     console.log(`${this.name} runs`);
+// };
+
+
+
+// function Programmer (name, age, language) {
+//     // this = {}
+//     Person.call(this, name, age);
+//     // {name: '', age: 23}
+//     this.pLanguage = language;
+//     // {name: '', age: 23, pLanguage: 'JS'}
+// }
+
+// Programmer.prototype = Object.create(Person.prototype);
+
+// Programmer.prototype.code = function () {
+//     console.log(`${this.name} is coding on ${this.pLanguage}`);
+// };
+
+// const pr = new Programmer('Valerchik', 53, 'JS');
+
+// p1.walk();
+
+
+
+class Person {
+    legs = 2;
+    iq = 100;
+    sayHello = () => {
+        console.log(this);
+    }
+    sayGoodBye = function () {
+        console.log(this);
+    }
+
+    constructor (name, age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    run(){
+        console.log(`${this.name} runs`);
+    }
+}
+
+const p1 = new Person('Peter', 11);
+const p2 = new Person('David', 15);
+
+setTimeout(p1.sayHello, 500);
+
+
+
+
+
+
