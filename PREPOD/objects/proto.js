@@ -207,6 +207,8 @@
 //     this.age = age;
 // }
 
+// Person.checkPersons = function (...args) { return args.length}
+
 // const p1 = new Person('Peter', 12);
 // const p2 = new Person('David', 15);
 
@@ -240,7 +242,7 @@
 
 
 class Person {
-    legs = 2;
+    #legs = 2;
     iq = 100;
     sayHello = () => {
         console.log(this);
@@ -254,18 +256,65 @@ class Person {
         this.age = age;
     }
 
-    run(){
-        console.log(`${this.name} runs`);
+    run(where = 'shop') {
+        console.log(`${this.name} runs to ${where}`);
     }
 }
 
 const p1 = new Person('Peter', 11);
+
+
+// setTimeout(p1.run, 500);
+
+
+class Programmer extends Person {
+    #salaryPerHour = 30;
+    #language;
+
+    constructor (language, ...args) {
+        super(...args);
+        this.#language = language;
+    }
+
+    static isProgrammer (person) {
+        return person instanceof Programmer;
+    }
+
+    static basicSalary = 20;
+
+    #code() {
+        console.log(`${this.name} codes`);
+    }
+
+    typeCode () {
+        this.#code();
+        // smth usefull
+    }
+
+    get salaryPerHour () {
+        return this.#salaryPerHour;
+    }
+
+    set salaryPerHour (val) {
+        if (val > 0) {
+            this.#salaryPerHour = val;
+        }
+    }
+
+    // function override
+    run () {
+        // заимствование метода
+        super.run();
+        console.log(`VERY SLOWLY`);
+    }
+
+}
+
+const pr = new Programmer('JS', 'John', 14);
 const p2 = new Person('David', 15);
 
-setTimeout(p1.sayHello, 500);
+// pr.run();
+// p2.run();
 
-
-
-
-
+// pr.p2 = p2;
 
