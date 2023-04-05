@@ -251,7 +251,7 @@ class Person {
         console.log(this);
     }
 
-    constructor (name, age) {
+    constructor(name, age) {
         this.name = name;
         this.age = age;
     }
@@ -271,12 +271,12 @@ class Programmer extends Person {
     #salaryPerHour = 30;
     #language;
 
-    constructor (language, ...args) {
+    constructor(language, ...args) {
         super(...args);
         this.#language = language;
     }
 
-    static isProgrammer (person) {
+    static isProgrammer(person) {
         return person instanceof Programmer;
     }
 
@@ -286,25 +286,26 @@ class Programmer extends Person {
         console.log(`${this.name} codes`);
     }
 
-    typeCode () {
+    typeCode() {
         this.#code();
         // smth usefull
     }
 
-    get salaryPerHour () {
+    get salaryPerHour() {
         return this.#salaryPerHour;
     }
 
-    set salaryPerHour (val) {
+    set salaryPerHour(val) {
         if (val > 0) {
             this.#salaryPerHour = val;
         }
     }
 
     // function override
-    run () {
+    run() {
         // заимствование метода
         super.run();
+
         console.log(`VERY SLOWLY`);
     }
 

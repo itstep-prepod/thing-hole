@@ -1,0 +1,55 @@
+.todo {
+    border-radius: 12px;
+    box-shadow: 4px 4px 6px rgba(0,0,0,0.3);
+    border: 1px solid lightgray;
+    max-width: 300px;
+    padding: 15px;
+    margin: 15px 0;
+    display: flex;
+    align-items: baseline;
+    background-color: white;
+}
+
+.todo.done {
+    background-color: lightgray;
+}
+
+.todo.done button.todo-toggle i {
+    color: green;
+}
+
+.todo-text {
+    flex-grow: 1;
+}
+
+.todo-toggle {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding: 0;
+    line-height: 25px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.todo-toggle:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.todo-delete {
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    text-align: center;
+    padding: 0;
+    line-height: 25px;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.todo-delete:hover {
+    background-color: rgba(0,0,0,0.1);
+}
