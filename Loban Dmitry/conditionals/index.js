@@ -9,26 +9,26 @@
 // выводится такое сообщение: «Федот и Митрофан
 // одного возраста».
 
-let a = prompt('Введите возраст Федота');
-let b = prompt('Введите возраст Митрофана');
-let c = a - b;
-let d = b - a;
+let ageFedot = prompt('Введите возраст Федота');
+let ageMitrofan = prompt('Введите возраст Митрофана');
+let ageDifference1 = ageFedot - ageMitrofan;
+let ageDifference2 = ageMitrofan - ageFedot;
 
-a = Number(a);
-b = Number(b);
-c = Number(c);
-d = Number(d);
+ageFedot = Number(ageFedot);
+ageMitrofan = Number(ageMitrofan);
+ageDifference1 = Number(ageDifference1);
+ageDifference2 = Number(ageDifference2);
 
-	if (isNaN(a) || isNaN(b)) {
-		alert("Введите возраст в цифровом выражении!");
-	}
-	if (a > b) {
-		console.log(`Федот старше Митрофана на ${c}`);
-	} else if (b > a) {
-		console.log(`Митрофан старше Федота на ${d}`);
-	} else if (a === b) {
-		console.log(`Федот и Митрофан одного возраста`);
-	}
+if (isNaN(ageFedot) || isNaN(ageMitrofan)) {
+	alert("Введите возраст в цифровом выражении!");
+}
+if (ageFedot > ageMitrofan) {
+	console.log(`Федот старше Митрофана на ${ageDifference1}`);
+} else if (ageMitrofan > ageFedot) {
+	console.log(`Митрофан старше Федота на ${ageDifference2}`);
+} else if (ageFedot === ageMitrofan) {
+	console.log(`Федот и Митрофан одного возраста`);
+}
 
 
 
@@ -43,13 +43,13 @@ first = Number(first);
 second = Number(second);
 third = Number(third);
 
-    if (first > second && first > third){
-    console.log(first)
-    }
-    else if (second > first && second > third){
-		console.log(second)
-		}
-		else if (third > second && third > first){
-		console.log(third)
-		}
+if (first > second && first > third){
+	console.log(first)
+}
+else if (second > first && second > third){
+	console.log(second)
+}
+else if (third > second && third > first){
+	console.log(third)
+}
 
