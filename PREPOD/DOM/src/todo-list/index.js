@@ -10,6 +10,7 @@
 
 import AbstractMountable from "../shared/mountable";
 import Todo from "../todo";
+import { isClickedOn } from "../shared/utils";
 
 export default class TodoList extends AbstractMountable {
     constructor () {
@@ -20,12 +21,19 @@ export default class TodoList extends AbstractMountable {
         wrapper.classList.add('todo-list');
 
         this.element = wrapper;
+        
     }
 
     addTodo (text) {
-        const newTodo = new Todo(text);
+        const newTodo = new Todo(text, this.onClick.bind(this));
         this.todos.push(newTodo);
         newTodo.mount(this.element);
+    }
+
+    onClick (selectedId) {
+        const indexToDelete = this.todos.findIndex(({id}) => String(id) === String(selectedId));
+        this.todos[indexToDelete].remove();
+        this.todos.splice(indexToDelete, 1);
     }
 
     removeTodo() {}
