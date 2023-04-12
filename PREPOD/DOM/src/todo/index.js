@@ -1,62 +1,46 @@
-import {
-    createDeleteButton,
-    createSpan,
-    createToggleButton,
-} from './utils';
-import { isClickedOn } from '../shared/utils';
-import { ICON } from '../constants';
-import AbstractMountable from '../shared/mountable';
-import './index.css';
+import { createDeleteButton, createSpan, createToggleButton } from "./utils";
+import { isClickedOn } from "../shared/utils";
+import { ICON } from "../constants";
+import AbstractMountable from "../shared/mountable";
+import "./index.css";
+import { EVENT_TYPE } from "../constants";
 
 export default class Todo extends AbstractMountable {
-    constructor (text, sendId) {
-        super();
-        this.text = text;
-        this.isDone = false; 
+  constructor(text, sendId) {
+    super();
+    this.text = text;
+    this.isDone = false;
 
-        const todoId = Date.now();
-        this.id = todoId;
-      
+    const todoId = Date.now();
+    this.id = todoId;
 
-        const div = document.createElement('div');
-        div.className = 'todo';
+    const div = document.createElement("div");
+    div.className = "todo";
 
-        div.addEventListener('click', ({target, currentTarget}) => { 
-         
-            if (isClickedOn(target, 'todo-delete')) {
-                sendId(currentTarget.id);
-            }
-      
-            if ( isClickedOn(target, 'todo-toggle') ) {
-               this.toggle();
-            }
-        });
+    div.addEventListener("click", ({ target, currentTarget }) => {
+      const eventType = isClickedOn(target, "todo-delete")
+        ? EVENT_TYPE.DELETE
+        : EVENT_TYPE.TOGGLE;
 
-        div.append(createSpan(text));
-        div.append(createToggleButton());
-        div.append(createDeleteButton());
-        div.id = todoId;
+      sendId({ id: currentTarget.id, eventType });
+    });
 
-        this.element = div;
-    }
+    div.append(createSpan(text));
+    div.append(createToggleButton());
+    div.append(createDeleteButton());
+    div.id = todoId;
 
-    toggle () {
-        this.isDone = !this.isDone;
-        this.element.classList.toggle('done');
-        const btn = this.element.getElementsByClassName('todo-toggle')[0];
-        btn.innerHTML = this.isDone ? ICON.DONE : ICON.UNDONE;
-    }
+    this.element = div;
+  }
 
-    remove () {
-        this.element.remove();
-    }
+  toggle() {
+    this.isDone = !this.isDone;
+    this.element.classList.toggle("done");
+    const btn = this.element.getElementsByClassName("todo-toggle")[0];
+    btn.innerHTML = this.isDone ? ICON.DONE : ICON.UNDONE;
+  }
 
+  remove() {
+    this.element.remove();
+  }
 }
-
-
-
-
-
-
-
-

@@ -15,33 +15,5 @@
   </head>
   <body>
 
-    <hr> 
-      <div id="parent">
-        parent 
-        <div id="child">
-          child
-          <div id="grandchild">
-            grandchild
-          </div>
-        </div>
-      </div>
-    <hr>
-
-    <script>
-      const foo = ({target, currentTarget}) => {
-        console.log('currentTarget', currentTarget);
-        console.log('target', target);
-      };
-
-      const parent = document.getElementById('parent');
-      const child = document.getElementById('child');
-      const grandChild = document.getElementById('grandchild');
-
-      parent.addEventListener('click', foo);
-      child.addEventListener('click', foo);
-      grandChild.addEventListener('click', foo);
-
-    </script>
-
   </body>
 </html>

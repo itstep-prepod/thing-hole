@@ -5,19 +5,20 @@
 // 8. ? текст менять
 // 9. ? drag and drop
 
-import {BASIC_TEMPLATE} from './constants';
 import TodoInput from './todo-input';
-import './index.css';
 import TodoList from './todo-list';
+import TodoFilter from './todo-filter';
+import './index.css';
 
-
-document.body.insertAdjacentHTML('afterbegin', BASIC_TEMPLATE);
 
 const todoList = new TodoList();
-
+const todoFilter = new TodoFilter(todoList.setFilter.bind(todoList));
 const todoInput = new TodoInput(todoList.addTodo.bind(todoList)); 
 
+todoFilter.mount(document.body);
 todoInput.mount(document.body);
 todoList.mount(document.body);
+
+
 
 
