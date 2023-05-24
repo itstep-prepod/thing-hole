@@ -14,6 +14,7 @@ export const Wrapper = styled.div`
     align-items: center;
     padding: 5px;
     margin: 5px;
+    margin-right: auto;
     height: 40px;
     user-select: none;
 `;

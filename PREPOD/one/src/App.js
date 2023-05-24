@@ -1,17 +1,25 @@
-import React, {useState} from 'react';
-import { Sale } from './Sale';
+import React from 'react';
+import {User} from './user';
+import {Product} from './product';
+import { themeContext, ThemeProvider } from './context/themeContext';
+import { AnotherContextProvider } from './context/anotherContext';
 
-export function App () {
-    const [shouldShowComponent, setShouldShowComponent] = useState(true);
+export const App = () => {
 
-    const toggleComponent = () => {
-        setShouldShowComponent(prevVal => !prevVal);
+    const themeContextValue = {
+        themeType: 'dark'
+    };
+
+    const context2 = {
+        chtotoDrugoe: 'ok'
     };
 
     return (
-        <div>
-            <h1>Hello</h1>
-            <Sale/>
-        </div>
+        <ThemeProvider value={themeContextValue}>
+            <AnotherContextProvider value={context2}>
+                    <h1>App</h1>
+                    <Product />
+            </AnotherContextProvider>
+        </ThemeProvider>
     );
-}
+};

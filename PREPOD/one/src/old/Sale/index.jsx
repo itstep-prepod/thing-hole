@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import './index.css';
 
 
-export const Sale = () => {
+export const Sale = ({children}) => {
     const [isSaleOn, setIsSaleOn] = useState(false);
     const [isBorderOn, setIsBorderOn] = useState(false);
 
@@ -10,7 +10,6 @@ export const Sale = () => {
         setIsSaleOn(prevVal => !prevVal);
     };
     
-
     useEffect(() => {
         let intervalId;
 
@@ -31,9 +30,8 @@ export const Sale = () => {
         <div>
             <button onClick={onClickHandler}>set sale!</button>
             <div className={isBorderOn ? 'onSale' : ''}> 
-                <h2> 1kg bulba </h2>
-                <p> 1000$ </p>
-            </div>
+                {children}
+            </div>           
         </div>
     );
 };
