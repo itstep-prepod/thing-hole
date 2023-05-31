@@ -3,9 +3,12 @@ import {MenuWrapper} from './index.styles.js';
 import {Logo} from '../logo';
 import {Button} from '../button';
 import {Modal}from '../modal';
+import {ThingAddForm} from '../thing-add-form';
+
 
 export const MainMenu = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+   
 
     const onModalOpenClick = () => {
         setIsModalOpen(true);
@@ -14,11 +17,11 @@ export const MainMenu = () => {
     const closeModal = () => {
         setIsModalOpen(false);
     };
-
+   
     return (
         <MenuWrapper>
             <Modal isOpen={isModalOpen} onClose={closeModal}>
-                Modal
+                <ThingAddForm/>
             </Modal>
             <Logo/>
             <Button view='secondary' onClick={onModalOpenClick}>

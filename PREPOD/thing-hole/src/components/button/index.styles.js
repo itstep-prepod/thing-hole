@@ -25,7 +25,7 @@ const views = {
 
 export const Button = styled.button`
    & {
-      border: none;
+      border: ${({withBorder}) => withBorder ? '0.5px solid gray' : 'none'};
       padding: 5px 15px;
       border-radius: 8px;
       transition: all 0.5s ease;

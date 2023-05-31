@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {createPortal} from 'react-dom';
-import {ModalWrapper, ModalContent, ModalBackdrop} from './index.styles.js';
+import {ModalWrapper, ModalContent, ModalBackdrop, ModalHeader} from './index.styles.js';
+import {IoIosClose} from 'react-icons/io';
 
 
 export const Modal = ({children, isOpen, onClose}) => {
@@ -18,7 +19,9 @@ export const Modal = ({children, isOpen, onClose}) => {
     return isModalOpen && createPortal(
         <ModalWrapper>
             <ModalContent>
-            <div onClick={defaultClose}>X</div>
+                <ModalHeader>
+                    <IoIosClose size='2em' onClick={defaultClose} />
+                </ModalHeader>
                 {children}
             </ModalContent>
             <ModalBackdrop onClick={defaultClose}/>

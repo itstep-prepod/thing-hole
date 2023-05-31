@@ -10,7 +10,7 @@ export const ModalContent = styled.div`
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
-        min-width: 30%;
+        min-width: 400px;
         min-height: 30%;
         z-index: 999;
         box-shadow: 10px 10px 32px 15px rgba(0,0,0,0.5);
@@ -37,5 +37,18 @@ export const ModalBackdrop = styled.div`
         bottom: 0;
         right: 0;
         z-index: 998;
+    }
+`;
+
+export const ModalHeader = styled.div`
+    & {
+        width: 100%;
+        height: 32px;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    & svg {
+        cursor: pointer;    
     }
 `;

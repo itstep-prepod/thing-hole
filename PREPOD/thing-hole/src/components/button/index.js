@@ -7,7 +7,7 @@ import {Button as StyledButton} from './index.styles.js';
 export const Button = ({children, ...props}) => {
     return (
         <StyledButton {...props}>
-            {children}
+           {children}
         </StyledButton>
     );
 };
