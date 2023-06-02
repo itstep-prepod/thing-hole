@@ -4,10 +4,12 @@ import {Logo} from '../logo';
 import {Button} from '../button';
 import {Modal}from '../modal';
 import {ThingAddForm} from '../thing-add-form';
+import {useThingsContext} from '../../context/things-context/useThingsContext';
 
 
 export const MainMenu = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const {addThing} = useThingsContext();
    
 
     const onModalOpenClick = () => {
@@ -17,11 +19,16 @@ export const MainMenu = () => {
     const closeModal = () => {
         setIsModalOpen(false);
     };
+
+    const onThingAdd = (thing) => {
+        closeModal();
+        addThing(thing);
+    };
    
     return (
         <MenuWrapper>
             <Modal isOpen={isModalOpen} onClose={closeModal}>
-                <ThingAddForm/>
+                <ThingAddForm onThingAdd={onThingAdd}/>
             </Modal>
             <Logo/>
             <Button view='secondary' onClick={onModalOpenClick}>

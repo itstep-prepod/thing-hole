@@ -1,7 +1,0 @@
-export const mockData = [
-    {
-        imgUrl: 'https://upload.wikimedia.org/wikipedia/commons/1/15/Cat_August_2010-4.jpg'
-    },
-    {},
-    {}
-];

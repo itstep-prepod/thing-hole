@@ -32,7 +32,7 @@ export const Button = styled.button`
       font-size: 22px;
       cursor: pointer;
       ${
-         ({view}) => views[view].regular
+         ({view = 'primary'}) => views[view].regular
       }
    }
 
@@ -46,7 +46,7 @@ export const Button = styled.button`
 
    &:hover {
       ${
-         ({view}) => views[view].hover
+         ({view = 'primary'}) => views[view].hover
       }
    }
 `;
