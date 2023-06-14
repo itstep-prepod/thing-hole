@@ -5,19 +5,11 @@ import { Marker } from 'react-leaflet/Marker';
 import IconPerson from '../marker-icon';
 
 
-export const MapView = ({onChange, value}) => {
+export const MapView = ({markerPos}) => {
 
-    const map = useMapEvents({
-        click (e) {
-            map.locate();
-  
-            onChange([e.latlng.lat, e.latlng.lng]);
-        },
-        locationfound (e) {
-            // console.log('location found',e);
-        }
-    });
+    const map = useMapEvents({});
 
+    map.flyTo({lat: markerPos[0], lng: markerPos[1] } ,map.getZoom());
 
     return (
         <>
@@ -25,7 +17,7 @@ export const MapView = ({onChange, value}) => {
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                 url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
             />
-            <Marker position={value} icon={IconPerson} />
+            <Marker position={markerPos} icon={IconPerson} />
         </>
     );
 };

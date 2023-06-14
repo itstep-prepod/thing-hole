@@ -4,12 +4,17 @@ import {Wrapper} from './index.styles.js';
 import {useThingsContext} from '../../context/things-context/useThingsContext';
 
 export  const ThingsCardList = () => {
-    const {things} = useThingsContext();
+    const {things, deleteThing, onCardClick} = useThingsContext();
 
     return (
         <Wrapper>
             {things.map((props) => (
-                <ThingCard {...props} key={props.title} />
+                <ThingCard 
+                    {...props}
+                    onCardClick={onCardClick}
+                    onDelete={deleteThing}
+                    key={props.id}
+                />
             ))}
         </Wrapper>
     );

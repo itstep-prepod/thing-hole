@@ -7,7 +7,7 @@ import 'leaflet/dist/leaflet.css';
 
 
 
-export const MapCoordsSelector = () => {
+export const MapCoordsSelector = ({onChange = () => {}, value = [0,0]}) => {
     return (
     <>
         <MapContainer 
@@ -15,7 +15,7 @@ export const MapCoordsSelector = () => {
             zoom={DEFAULT_MAP_ZOOM}
             style={{ height: '400px', width: '100%' }}
         >
-            <MapView/>
+            <MapView onChange={onChange} value={value}/>
         </MapContainer>
     </>
     );

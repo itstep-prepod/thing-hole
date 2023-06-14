@@ -10,7 +10,7 @@ export const ThingAddForm = ({onThingAdd}) => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [imgUrl, setImgUrl] = useState(null);
-    const [coords, setCoords] = useState(null);
+    const [coords, setCoords] = useState([0,0]);
 
     const onTitleChange = (event) => {
         setTitle(event.target.value);
@@ -25,15 +25,18 @@ export const ThingAddForm = ({onThingAdd}) => {
     };
 
     const onAddClick = () => {
-        const thing = {title, description, imgUrl, coords};
+        // TODO: айди не должен быть ЛИПОВЫМ!
+        const thing = {title, description, imgUrl, coords, id: Date.now()};
         onThingAdd(thing);
     };
 
-    // TODO2: MapCoordsSelector two way binding
+    const onMarkerChange = (markerCoords) => {
+        setCoords(markerCoords);
+    };
 
     return (
         <>
-            <MapCoordsSelector/>
+            <MapCoordsSelector onChange={onMarkerChange} value={coords}/>
             <Input 
                 label='Title'
                 onChange={onTitleChange}

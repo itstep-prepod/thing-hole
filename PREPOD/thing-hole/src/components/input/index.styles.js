@@ -21,3 +21,11 @@ export const InputLabel = styled.p`
         font-size: 14px;
     }
 `;
+
+export const InputError = styled.p`
+    & {
+        margin-top: -15px;
+        margin-bottom: 15px;
+        color: red;
+    }
+`;
