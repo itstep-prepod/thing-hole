@@ -4,6 +4,8 @@ import {ModalWrapper, ModalContent, ModalBackdrop, ModalHeader} from './index.st
 import {IoIosClose} from 'react-icons/io';
 
 
+
+
 export const Modal = ({children, isOpen, onClose}) => {
     const [isModalOpen, setIsModalOpen] = useState(isOpen || false);
 

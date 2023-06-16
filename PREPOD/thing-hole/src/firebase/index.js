@@ -53,9 +53,11 @@ export const registerUser = (email, password) => {
     return createUserWithEmailAndPassword(auth, email, password)
     .then((res) => {
         console.log('user has been created', res);
+        return res;
     })
     .catch((err) => {
         console.log('user creation failed', err);
+        return err;
     })
 };
 
@@ -63,8 +65,10 @@ export const signIn = (email, password) => {
     return signInWithEmailAndPassword(auth, email, password)
     .then((res) => {
         console.log('user has been logged in', res);
+        return res;
     })
     .catch((err) => {
         console.log('user login failed', err);
+        return err;
     })
 };
