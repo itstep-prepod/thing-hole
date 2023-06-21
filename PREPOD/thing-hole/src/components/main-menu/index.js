@@ -4,7 +4,7 @@ import {Logo} from '../logo';
 import {Button} from '../button';
 import {Modal}from '../modal';
 import {ThingAddForm} from '../thing-add-form';
-import {useThingsContext} from '../../context/things-context/useThingsContext';
+// import {useThingsContext} from '../../context/things-context/useThingsContext';
 import {useDispatch, useSelector} from 'react-redux';
 import {setUserLogged} from '../../redux/userSlice';
 import {getIsLoggedIn} from '../../redux/selectors';
@@ -13,7 +13,7 @@ import {useNavigate} from 'react-router-dom';
 
 export const MainMenu = () => {
     const [isModalOpen, setIsModalOpen] = useState(false);
-    const {addThing} = useThingsContext();
+    // const {addThing} = useThingsContext();
     const dispatch = useDispatch();
     const isLoggedIn = useSelector( getIsLoggedIn );
     const navigate = useNavigate();
@@ -30,7 +30,7 @@ export const MainMenu = () => {
 
     const onThingAdd = (thing) => {
         closeModal();
-        addThing(thing);
+        // addThing(thing);
     };
 
     const onLoginClick = () => {
@@ -50,9 +50,9 @@ export const MainMenu = () => {
                 <ThingAddForm onThingAdd={onThingAdd}/>
             </Modal>
             <Logo/>
-            <Button view='secondary' onClick={onModalOpenClick}>
+            {isLoggedIn && <Button view='secondary' onClick={onModalOpenClick}>
                 Add lost thing
-            </Button>
+            </Button>}
             <Button view='primary' onClick={onLoginClick}>
                 {isLoggedIn ? 'Logout' : 'Login'}
             </Button>

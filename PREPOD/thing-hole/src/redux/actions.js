@@ -1,12 +1,33 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import {registerUser, signIn, logOut} from '../firebase';
-import {setUserLogout} from './userSlice';
+import {registerUser, signIn, logOut, getUserDoc, addThingToUserDB, getUserThings} from '../firebase';
+import {setUserLogout, setUserDoc, setUserThings, addThing} from './userSlice';
+
+
+export const addLostThingToUserDB = createAsyncThunk(
+    'user/thingAddToDB',
+    async (thing, thunkApi) => {
+
+        const {user: {userDoc}} = thunkApi.getState();
+        const result = await addThingToUserDB(userDoc, thing);
+        
+        thunkApi.dispatch(addThing(thing));
+
+        return result;
+    }
+);
 
 export const userRegister = createAsyncThunk(
     'user/register',
-    async ({email, password}, thunkApi) => {
+    async ({email, password}, {dispatch}) => {
 
         const {user} = await registerUser(email, password);
+        const userData = {
+            email: user.email,
+            uid: user.uid
+        };
+
+        const userDoc = await getUserDoc(userData);
+        dispatch(setUserDoc(userDoc));
 
         // async stuff
 
@@ -16,23 +37,25 @@ export const userRegister = createAsyncThunk(
 
         // thunkApi.rejectWithValue({text: 'vse ploo'});
 
-        return {
-            email: user.email,
-            uid: user.uid
-        }
+        return userData;
     }
 ); 
 
 export const userLogin = createAsyncThunk(
     'user/login',
-    async ({email, password}, thunkApi) => {
+    async ({email, password}, {dispatch}) => {
 
         const {user} = await signIn(email, password);
 
-        const userData = {
+        const userAuthData = {
             email: user.email,
             uid: user.uid
         };
+        const userDoc = await getUserDoc(userAuthData);
+        dispatch(setUserDoc(userDoc));
+
+        const userData = await getUserThings(user.uid);
+        dispatch(setUserThings(userData));
 
         return userData;
     }

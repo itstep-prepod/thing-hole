@@ -20,7 +20,9 @@ const userSlice = createSlice({
     name: 'user',
     initialState: {
         userCreds: null,
-        isLoading: false
+        userDoc: null,
+        isLoading: false,
+        things: []
     },
     reducers: {
         setUserLogged (state, action) {
@@ -28,6 +30,17 @@ const userSlice = createSlice({
         },
         setUserLogout (state) {
             state.userCreds = null;
+            state.userDoc = null;
+            state.things = [];
+        },
+        setUserDoc (state, action) {
+            state.userDoc = action.payload;
+        },
+        setUserThings (state, action) {
+            state.things = action.payload.things;
+        },
+        addThing (state, action) {
+            state.things = [...state.things, action.payload]
         }
     },
     extraReducers: (builder) => 
@@ -58,7 +71,7 @@ const userSlice = createSlice({
 });
 
 
-export const {setUserLogged, setUserLogout} = userSlice.actions;
+export const {setUserLogged, setUserLogout, setUserDoc, setUserThings, addThing} = userSlice.actions;
 
 export default userSlice.reducer;
 

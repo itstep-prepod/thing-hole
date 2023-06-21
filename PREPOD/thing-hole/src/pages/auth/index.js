@@ -20,7 +20,7 @@ export const AuthPage = () => {
         <Wrapper>
             <WrapperForm>
                 <IconButton onClick={onBackButtonClick}>На главную</IconButton>
-                { isLoggedIn ?<LoggedUser/> : <SignUpUser/> }
+                { isLoggedIn ? <LoggedUser/> : <SignUpUser/> }
             </WrapperForm>
         </Wrapper>
     );

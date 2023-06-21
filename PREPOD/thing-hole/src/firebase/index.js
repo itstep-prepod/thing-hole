@@ -8,6 +8,18 @@ import {
     signInWithPopup,
     onAuthStateChanged
 } from 'firebase/auth';
+import { 
+    getFirestore,
+    collection,
+    addDoc,
+    getDocs,
+    setDoc,
+    arrayUnion,
+    arrayRemove,
+    doc,
+    getDoc,
+    updateDoc
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyBDmagxSst0fIf8pOHIgvN2U8E-keyFWHg",
@@ -20,6 +32,54 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
+
+
+export const getUserDoc = async ({uid, email}) => {
+    /* получаем ссылку на конкретного юзера*/
+    const userDoc = doc(db, `users/${uid}`);
+    const userData = await getDoc(userDoc);
+
+    console.log('user doc', userDoc);
+    if (userData.exists()) {
+        return userDoc;
+    } else {
+        // добавлять нового юзера с указанным айди
+        const userDoc = await setDoc(doc(db, 'users', uid), {
+            things: [],
+            email
+        });
+        return userDoc;
+    }
+};
+
+export const addThingToUserDB = async (userDoc, thing) => {
+    const data = await updateDoc(userDoc, 'things', arrayUnion(thing));
+
+    console.log(data);
+};
+
+export const removeThingsFromUserDB = async () => {};
+
+export const getUserThings = async (uid) => {
+    // const usersCollectionRef = collection(db, 'users');
+    const userDoc = doc(db, 'users', uid);
+    const userData = await getDoc(userDoc);
+
+    return userData.data();
+
+    // const usersDocs = await getDocs(usersCollectionRef);
+    // usersDocs.forEach((data) => {
+    //     console.log(data.id); // user.uid
+    //     console.log(data);
+    //     // console.log(data.data());
+    // })
+};
+
+
+
+
+
 
 const googleProvider = new GoogleAuthProvider();
 
@@ -72,3 +132,4 @@ export const signIn = (email, password) => {
         return err;
     })
 };
+

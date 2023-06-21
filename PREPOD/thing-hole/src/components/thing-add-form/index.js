@@ -3,14 +3,17 @@ import {Input} from '../input';
 import {FileInput} from '../file-input';
 import {MapCoordsSelector} from '../map-coords-selector';
 import {Button} from '../button';
+import { useDispatch } from "react-redux";
+import {addLostThingToUserDB} from '../../redux/actions';
 
 
 
-export const ThingAddForm = ({onThingAdd}) => {
+export const ThingAddForm = () => {
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [imgUrl, setImgUrl] = useState(null);
     const [coords, setCoords] = useState([0,0]);
+    const dispatch = useDispatch();
 
     const onTitleChange = (event) => {
         setTitle(event.target.value);
@@ -27,7 +30,7 @@ export const ThingAddForm = ({onThingAdd}) => {
     const onAddClick = () => {
         // TODO: айди не должен быть ЛИПОВЫМ!
         const thing = {title, description, imgUrl, coords, id: Date.now()};
-        onThingAdd(thing);
+        dispatch(addLostThingToUserDB(thing));
     };
 
     const onMarkerChange = (markerCoords) => {

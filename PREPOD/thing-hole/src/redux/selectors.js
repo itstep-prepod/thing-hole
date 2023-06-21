@@ -4,6 +4,11 @@ import {createSelector} from '@reduxjs/toolkit';
 
 export const getStateUser = (state) => state.user;
 
+export const getThings = createSelector(
+    getStateUser,
+    ({things}) => things
+);
+
 export const getUserEmail = createSelector(
     getStateUser,
     ({userCreds: {email}}) => email
